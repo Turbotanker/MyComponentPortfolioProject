@@ -1,12 +1,10 @@
 # Portfolio Part 1: Component Brainstorming
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) then delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) then delete this comment -->
-- **Due Date**: <!-- TODO: fill with due date and time (e.g., 10/17 @ 3:10 PM EST) then delete this comment -->
+- **Name**: Rijul Rastogi
+- **Dot Number**: Rastogi.68
+- **Due Date**: 10/17/25
 
 ## Assignment Overview
-
-<!-- TODO: read the assignment overview then delete this comment -->
 
 The overall goal of the portfolio project is to have you design and implement
 your own OSU component. There are no limits to what you choose to design and
@@ -29,8 +27,6 @@ implement.
 
 ## Assignment Checklist
 
-<!-- TODO: browse the checklist then delete this comment -->
-
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
 opening the TODOs window from the sidebar. The icon looks like a tree and will
@@ -52,8 +48,6 @@ to the tree diagram (you may remove this one as well):
 
 ## Assignment Learning Objectives
 
-<!-- TODO: read the assignment learning objectives then delete this comment -->
-
 Without learning objectives, there really is no clear reason why a particular
 assessment or activity exists. Therefore, to be completely transparent, here is
 what we're hoping you will learn through this particular aspect of the portfolio
@@ -66,8 +60,6 @@ project. Specifically, students should be able to:
    discipline
 
 ## Assignment Rubric: 10 Points
-
-<!-- TODO: read the assignment rubric then delete this comment -->
 
 Again, to be completely transparent, most of the portfolio project, except the
 final submission, is designed as a formative assessment. Formative assessments
@@ -106,23 +98,15 @@ Below is further rationale/explanation for the rubric items above:
 > brainstorming. Plus it helps us get to know you better! Feel free to share
 > images in this section.
 
-<!-- TODO: briefly talk about your interests then delete this comment.
-Also, protip: you can preview what your response looks like by hitting
-the magnifying glass icon in the upper-right corner or pressing CTRL+K and
-then V. This kind of button combination is called a chord, for whatever
-reason -->
+I’m really interested in data structures and algorithms because I like figuring out how things work and how to make them faster or more efficient. I enjoy solving logic problems and seeing how small design choices can impact performance. My goal is to work in software development, ideally on something that involves building systems or solving complicated technical problems. Outside of school, I like exploring new tech, doing hackathons, and learning how to apply what I know to any real-world projects.
 
 ## Assignment
-
-<!-- TODO: read the assignment section then delete this comment -->
 
 As previously stated, you are tasked with brainstorming 3 possible components.
 To aid you in this process, we have provided [some example components][example-components]
 that may help you in your brainstorming. All of these components were made at
 some point by one of your peers, so you should feel confident that you can
 accomplish any of them.
-
-<!-- TODO: browse the list of possible projects then delete this comment -->
 
 There is no requirement that you use any of the components listed above.
 If you want to model something else, go for it! Very common early object
@@ -131,8 +115,6 @@ etc. Make of this whatever seems interesting to you, and keep in mind that
 you're just brainstorming right now. You do not have to commit to anything.
 
 ### Example Component
-
-<!-- TODO: review this example component then delete this comment -->
 
 To help you brainstorm a few components, we've provided an example below of a
 component you already know well: NaturalNumber. We highly recommend that you
@@ -200,26 +182,30 @@ will likely refine your design to make your implementation easier to use.
 
 > Please use this section to share your designs.
 
-- Component Design #1: <!-- TODO: give component a name then delete this comment -->
+- Component Design #1: PriorityQueue
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - This component models a queue where each element has a priority. It’s commonly used in scheduling, and event simulation. It’s a great model of state (elements and their priorities) and behavior (insertion, deletion, ordering).
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - *void add(E x, int priority)*: adds an element with a given priority.
+    - *Pair<E, Integer> removeHighestPriority()*: removes and returns the element with the highest priority.
+    - *boolean isEmpty()*: checks if the queue is empty.
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - *E peekHighestPriority()*: returns (without removing) the element with the highest priority.
+    - *void changePriority(E x, int newPriority)*: updates the priority of an existing element.
+    - *void merge(PriorityQueue<E> other)*: merges another priority queue into this one.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes. Adding and removing elements changes the structure.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Maybe Entry<E> for pairing items and priorities.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Possibly a flag for HIGHEST_FIRST vs. LOWEST_FIRST
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - peekHighestPriority() can use removeHighestPriority() followed by re-adding the removed item.
 
 - Component Design #2: <!-- TODO: give component a name then delete this comment -->
   - **Description**:
