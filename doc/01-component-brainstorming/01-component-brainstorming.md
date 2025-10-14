@@ -184,7 +184,7 @@ will likely refine your design to make your implementation easier to use.
 
 - Component Design #1: PriorityQueue
   - **Description**:
-    - This component models a queue where each element has a priority. It’s commonly used in scheduling, and event simulation. It’s a great model of state (elements and their priorities) and behavior (insertion, deletion, ordering).
+    - This component should model a queue where each element has a priority. It’s commonly used in scheduling, and event simulation. It’s a great model of state (elements and their priorities) and behavior (insertion, deletion, ordering).
   - **Kernel Methods**:
     - *void add(E x, int priority)*: adds an element with a given priority.
     - *Pair<E, Integer> removeHighestPriority()*: removes and returns the element with the highest priority.
@@ -199,55 +199,64 @@ will likely refine your design to make your implementation easier to use.
       - Yes. Adding and removing elements changes the structure.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - Maybe Entry<E> for pairing items and priorities.
+      - Maybe *Entry<E>* for pairing items and priorities.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - Possibly a flag for HIGHEST_FIRST vs. LOWEST_FIRST
+      - Possibly a flag for *HIGHEST_FIRST* vs. *LOWEST_FIRST*
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - peekHighestPriority() can use removeHighestPriority() followed by re-adding the removed item.
+      - *peekHighestPriority()* can use *removeHighestPriority()* followed by re-adding the removed item.
 
-- Component Design #2: <!-- TODO: give component a name then delete this comment -->
+- Component Design #2: SkillTree
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - Inspired by games, I want this component to model a skill tree. A branching structure of abilities where unlocking one skill depends on others. It can capture state (skills and dependencies) and behavior (unlocking, upgrading, and resetting).
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - *void addSkill(String name)*: adds a new skill to the tree.
+    - *void addDependency(String skill, String prerequisite)*: sets a required skill relationship.
+    - *boolean isUnlocked(String skill)*: reports whether a skill is unlocked.
+    - *void unlockSkill(String skill)*: unlocks a skill if all prerequisites are met.
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - *Set<String> availableSkills()*: returns all skills that can currently be unlocked.
+    - *void resetSkills()*: locks all skills again.
+    - *int depth(String skill)*: returns how many prerequisite levels deep a skill is.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes. Unlocking or resetting changes the structure.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Could use a small *Skill* class storing name and prerequisite list.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Possibly constants for skill states (*LOCKED*, *UNLOCKED*)
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - *availableSkills()* can use *isUnlocked()* and the dependency structure to find all valid next options.
 
-- Component Design #3: <!-- TODO: give component a name then delete this comment -->
+- Component Design #3: PrefixTree
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - This data structure will serve to efficiently store and retrieve strings based on shared prefixes. It can commonly be used in autocomplete systems, spell checkers, and text prediction algorithms.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - *void insert(String word)*: adds a word to the tree.
+    - *boolean search(String word)*: checks if a word exists in the tree.
+    - *boolean startsWith(String prefix)*: checks if any word begins with the given prefix.
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - *List<String> autoComplete(String prefix)*: returns possible word completions for a given prefix.
+    - *void remove(String word)*: removes a word from the trie if it exists.
+    - *int countWords()*: returns the total number of words stored.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes. Words can be added or removed.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Maybe a *Node* class to represent each letter, holding children in a map.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Could define a constant for the alphabet size.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - *autoComplete()* can build on *startsWith()* to gather all words below a prefix node maybe.
 
 ## Post-Assignment
 
