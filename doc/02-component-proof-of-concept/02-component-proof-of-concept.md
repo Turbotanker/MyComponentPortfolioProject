@@ -49,8 +49,6 @@ to the tree diagram (you may remove this one as well):
 
 ## Assignment Learning Objectives
 
-<!-- TODO: read the assignment learning objectives then delete this comment -->
-
 Without learning objectives, there really is no clear reason why a particular
 assessment or activity exists. Therefore, to be completely transparent, here is
 what we're hoping you will learn through this particular aspect of the portfolio
@@ -63,8 +61,6 @@ project. Specifically, students should be able to:
 3. Assemble a minimal working implementation of one of their designs
 
 ## Assignment Rubric: 10 Points
-
-<!-- TODO: read the assignment rubric then delete this comment -->
 
 Again, to be completely transparent, most of the portfolio project, except the
 final submission, is designed as a formative assessment. Formative assessments
@@ -110,8 +106,9 @@ Below is further rationale/explanation for the rubric items above:
 > to create a new design. In you do end up picking one at random, you should
 > disclose that here as well.
 
-<!-- TODO: briefly argue your choice of design or design something
-new; then delete this comment -->
+For my proof-of-concept, I decided to move forward with the SkillTree component. I chose this design because it balances creativity with solid data structure principles. It’s inspired by games but also applies to real-world systems like education platforms or software with feature progression.
+
+From an implementation standpoint, SkillTree is reasonable because it mainly relies on relationships between skills—something that can be modeled with collections like Map<String, List<String>> for dependencies and Set<String> for unlocked skills. This allows me to represent and test both state (which skills are unlocked) and behavior (unlocking, resetting, and checking availability) within a single file.
 
 > Once you've argued your choice of design, make a branch in your new repo called
 > something like `proof-of-concept`. There are many ways to do this, but my
