@@ -15,3 +15,12 @@ the following form: YYYY.0M.0D.
 - Designed a PriorityQueue component
 - Designed a SkillTree component
 - Designed a PrefixTree component
+
+## [2025.10.14]
+
+### Added
+- Created `SkillTreeKernel` and `SkillTree` interfaces following OSU component discipline.
+
+### Updated
+- Defined method contracts with clear parameter modes and @ensures clauses.
+- Clarified hierarchy structure and documentation for client-facing API.
