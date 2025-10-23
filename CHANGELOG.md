@@ -16,7 +16,7 @@ the following form: YYYY.0M.0D.
 - Designed a SkillTree component
 - Designed a PrefixTree component
 
-## [2025.10.14]
+## [2025.10.23]
 
 ### Added
 - Created `SkillTreeKernel` and `SkillTree` interfaces following OSU component discipline.
