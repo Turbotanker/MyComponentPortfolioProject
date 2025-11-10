@@ -1,53 +1,89 @@
-import components.standard.Standard;
+import java.util.Set;
 
 /**
  * Kernel interface for {@code SkillTree} component.
  *
  * Name: Rijul Rastogi Dot Number: Rastogi.68 Due Date: 10/23/25
  */
-public interface SkillTreeKernel extends Standard<SkillTree> {
+public interface SkillTreeKernel {
 
     /**
      * Adds a new skill to the tree.
      *
      * @param name
-     *            name of the skill to add
-     * @requires name is not already in the tree
-     * @ensures skill with name {@code name} is added and initially locked
+     *            the name of the skill being added
+     * @updates this
+     * @ensures skillExists(name)
      */
     void addSkill(String name);
 
     /**
-     * Adds a prerequisite dependency between two skills.
+     * Adds a prerequisite relationship: prerequisite -> skill.
      *
      * @param skill
-     *            the skill that depends on another
+     *            the skill that depends on the prerequisite
      * @param prerequisite
-     *            the required skill that must be unlocked first
-     * @requires {@code skill} and {@code prerequisite} exist and are distinct
-     * @ensures {@code prerequisite} is recorded as a dependency of
-     *          {@code skill}
+     *            the prerequisite skill
+     * @requires skillExists(skill) and skillExists(prerequisite)
+     * @updates this
+     * @ensures prerequisite is listed as a prerequisite of skill
      */
     void addDependency(String skill, String prerequisite);
 
     /**
-     * Unlocks a skill if all its prerequisites are met.
+     * Returns whether the given skill exists in the tree.
      *
      * @param skill
-     *            name of skill to unlock
-     * @requires {@code skill} exists in the tree
-     * @ensures skill is unlocked if all its prerequisites are unlocked
+     *            the skill name
+     * @return true if the skill exists, false otherwise
+     */
+    boolean skillExists(String skill);
+
+    /**
+     * Reports whether the given skill has been unlocked.
+     *
+     * @param skill
+     *            the name of the skill
+     * @requires skillExists(skill)
+     * @return true if the skill is unlocked, false otherwise
+     */
+    boolean isUnlocked(String skill);
+
+    /**
+     * Unlocks a skill.
+     *
+     * @param skill
+     *            the name of the skill
+     * @requires skillExists(skill)
+     * @updates this
+     * @ensures isUnlocked(skill)
      */
     void unlockSkill(String skill);
 
     /**
-     * Reports whether a given skill is unlocked.
+     * Resets all skills to locked.
+     *
+     * @updates this
+     * @ensures for all skills s, isUnlocked(s) == false
+     */
+    void resetSkills();
+
+    /**
+     * Returns the direct prerequisites of this skill.
      *
      * @param skill
-     *            name of skill
-     * @requires {@code skill} exists in the tree
-     * @ensures isUnlocked = true if skill is unlocked
-     * @return true if {@code skill} is unlocked, false otherwise
+     *            the name of the skill
+     * @requires skillExists(skill)
+     * @return a set of skills required for this skill
+     * @aliases return value
      */
-    boolean isUnlocked(String skill);
+    Set<String> prerequisitesOf(String skill);
+
+    /**
+     * Returns the set of all skill names stored in this skill tree.
+     *
+     * @return a set containing all skill names
+     * @aliases return value
+     */
+    Set<String> allSkills();
 }
