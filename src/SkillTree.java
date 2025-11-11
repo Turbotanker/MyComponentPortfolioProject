@@ -1,42 +1,38 @@
-import java.util.Set;
+import components.set.Set;
 
 /**
- * Enhanced interface for {@code SkillTree} component.
- *
- * <p>
- * Extends the {@code SkillTreeKernel} to provide additional functionality such
- * as viewing available skills, resetting progress, and calculating depth.
- * </p>
+ * Enhanced interface for {@code SkillTree}.
  *
  * Name: Rijul Rastogi Dot Number: Rastogi.68 Due Date: 10/23/25
  */
 public interface SkillTree extends SkillTreeKernel {
 
     /**
-     * Returns all skills that can currently be unlocked (all prerequisites
-     * met).
+     * Returns all skills that can currently be unlocked.
      *
-     * @ensures availableSkills = set of all locked skills with all
-     *          prerequisites unlocked
-     * @return set of skills currently available for unlocking
+     * @return set of skills whose prerequisites are all unlocked
+     * @ensures availableSkills = { s in allSkills | not isUnlocked(s) and all
+     *          prereqs(s) are unlocked }
      */
     Set<String> availableSkills();
 
     /**
      * Locks all skills in the tree.
      *
-     * @ensures all skills in the tree are locked
+     * @updates this
+     * @ensures for all s in allSkills, not isUnlocked(s)
      */
+    @Override
     void resetSkills();
 
     /**
-     * Returns the number of prerequisite levels deep a skill is in the tree.
+     * Returns the prerequisite depth of a skill.
      *
      * @param skill
      *            name of skill
-     * @requires {@code skill} exists in the tree
-     * @ensures depth = number of prerequisite levels before {@code skill}
-     * @return depth level as a non-negative integer
+     * @requires skillExists(skill)
+     * @return number of levels of prerequisites
+     * @ensures depth >= 0
      */
     int depth(String skill);
 }
