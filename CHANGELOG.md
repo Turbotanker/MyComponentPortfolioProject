@@ -6,6 +6,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
+## [2025.11.21]
+
+### Added
+- Implemented complete `SkillTree1L` kernel class, including:
+  - Representation design using `Map1L<String, Record>`
+  - Kernel method implementations (`addSkill`, `removeSkill`, `addDependency`,
+    `unlockSkill`, `resetSkills`, `skillExists`, `isUnlocked`,
+    `prerequisitesOf`, `allSkills`)
+  - Standard method implementations (`clear`, `newInstance`,
+    `equals`, `hashCode`, `toString`)
+  - Full convention and correspondence specification consistent with OSU components
+
+### Updated
+- Updated design to cleanly separate kernel and secondary behavior
+  (`SkillTreeSecondary` now only defines extended operations)
+- Ensured `resetSkills` is implemented only in the kernel layer to respect
+  correct OSU layering principles
+
+
 ## [2025.11.11]
 
 ### Added

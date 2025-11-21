@@ -31,6 +31,7 @@ public abstract class SkillTreeSecondary implements SkillTree {
                 for (String p : prereqs) {
                     if (!this.isUnlocked(p)) {
                         ready = false;
+                        break;
                     }
                 }
                 if (ready) {
@@ -39,28 +40,6 @@ public abstract class SkillTreeSecondary implements SkillTree {
             }
         }
         return result;
-    }
-
-    /**
-     * Locks all skills in the tree.
-     *
-     * @updates this
-     * @ensures for all s in allSkills, not isUnlocked(s)
-     */
-    @Override
-    public void resetSkills() {
-        Set<String> all = this.allSkills();
-        for (String s : all) {
-            // unlocking state must be modified using kernel method
-            // so call unlockSkill only after checking state
-            if (this.isUnlocked(s)) {
-                break;
-                // kernel has no lockSkill, so call unlock only selectively
-                // from addDependency logic. Instead, use kernel resetSkills
-            }
-        }
-        // must call kernel reset (this is allowed)
-        this.resetSkills();
     }
 
     /**
