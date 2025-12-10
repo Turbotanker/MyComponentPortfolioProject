@@ -1,8 +1,8 @@
 # Portfolio Part 6: Finishing Touches
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) and delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) and delete this comment -->
-- **Due Date**: <!-- TODO: fill out with due date and time (e.g., 10/17 @ 3:10 PM EST) and delete this comment -->
+- **Name**: Rijul Rastogi
+- **Dot Number**: Rastogi.68
+- **Due Date**: 12/10/25
 
 ## Assignment Overview
 
@@ -49,8 +49,6 @@ Many of these additional techniques are somewhat out of the scope of this
 course, but just knowing about them could set you up for long term success.
 
 ## Assignment Checklist
-
-<!-- TODO: browse the checklist then delete this comment -->
 
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
@@ -140,8 +138,6 @@ merges, you will need to pull the changes from main into your current branch
 to see them. If you don't like this workflow, you may try following the
 rebase strategies described [here](https://stackoverflow.com/questions/35790561/working-while-waiting-for-pending-pr)
 and [here](https://stackoverflow.com/questions/18021888/continue-working-on-a-git-branch-after-making-a-pull-request).
-
-<!-- TODO: make a new branch from main then delete this comment -->
 
 ## Assignment Tasks
 
@@ -308,17 +304,24 @@ Take some time to fill them out honestly.
 > understand software development and why?
 
 <!-- TODO: discuss -->
+- Before this project, I understood software development mostly at the level of writing programs that “worked.” After completing this portfolio project, I now have a much deeper understanding of software as a carefully layered system of abstractions, not just a collection of methods. Designing a component from scratch forced me to think about representation, invariants, abstraction boundaries, and how to rigorously define behavior using formal contracts. I now see how professional software prioritizes correctness, maintainability, and clarity just as much as functionality.
 
 > Also, did the portfolio project surface any gaps in your own knowledge of
 > software development. If so, what are those gaps and how did you address them?
 
 <!-- TODO: discuss -->
+- This project revealed several gaps in my understanding:
+   - How deeply representation choices affect correctness and performance
+   - How difficult it is to design safe and complete equality and transfer semantics
+   - How important disciplined testing is without a reference implementation
+- I addressed these gaps by revisiting OSU component implementations (Set, Map, Queue), studying their conventions, and applying those patterns directly to my own work.
 
 > Finally, as a part of completing the portfolio project, to what extent has
 > your perspective of software development changed, if at all? In other words,
 > is software development something you still enjoy? If not, why not?
 
 <!-- TODO: discuss -->
+- My perspective has shifted from viewing software as “code that runs” to viewing it as a formal system with contracts, proofs, and rigor. I now enjoy the design phase far more than I did previously because I understand how it prevents bugs later. Software development became more intellectually satisfying rather than just task-oriented.
 
 > One of the challenges of completing the portfolio project is picking up a lot
 > of skills on your own. Some of these skills are, of course, software skills.
@@ -327,17 +330,33 @@ Take some time to fill them out honestly.
 > through this process?
 
 <!-- TODO: discuss -->
+- Some skills I gained:
+   - Abstract data type design
+   - Representation invariant design
+   - Formal method specification (requires/ensures)
+   - Recursive algorithm design
+   - JUnit testing without reference models
+   - Transfer semantics and alias management
+   - API documentation and public publishing
+   - Open-source workflow (GitHub, changelogs, versioning)
 
 > The follow-up question is: could you rephrase these skills you picked up
 > as bullet points that you could put on a resume? Try it below.
 
 <!-- TODO: discuss -->
+- Designed and implemented a full multi-layer Java software component using formal abstraction boundaries and representation invariants
+- Built kernel and secondary implementations using OSU Software Components discipline
+- Developed comprehensive JUnit test suites without reference models
+- Applied formal behavioral specifications (requires/ensures) across public APIs
+- Created real-world use-case demonstrations for academic planning and game progression systems
+- Published component using Git version control and changelog versioning
 
 > Next, how has working on this project affected your career trajectory?
 > In other words, do you now hate the topic you picked? Or, are you even more
 > interested in it? Both outcomes are valuable to your personal development.
 
 <!-- TODO: discuss -->
+- Working on the SkillTree component strengthened my interest in software engineering and systems design. It confirmed that I enjoy building infrastructure-level code rather than only application-level scripts.
 
 > Finally, consider the skills you've picked up and your current career
 > trajectory. What are some things you could do to continue on your
@@ -345,10 +364,16 @@ Take some time to fill them out honestly.
 > you stay on your path?
 
 <!-- TODO: discuss -->
+- To continue on this trajectory, I plan to:
+   - Contribute to open-source Java projects
+   - Take deeper systems and software engineering electives
+   - Build additional reusable components for my portfolio
+Potential mentors:
+   - OSU Software II / Foundations instructors
+   - Upper-level OSU systems students
+   - Software engineers through internship programs and LinkedIn networking
 
 ### Changelog
-
-<!-- TODO: update CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -383,8 +408,6 @@ like to accomplish that, you will need to make GitHub releases after each pull
 request merge (or at least tag your commits). This is not required.
 
 ### Submission
-
-<!-- TODO: read the submission instructions then delete this comment -->
 
 Assuming that your project is in a GitHub repo somewhere and your changes are on
 a proof-of-concept branch, then what we'll want you to do is create a pull
