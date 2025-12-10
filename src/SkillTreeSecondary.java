@@ -70,4 +70,42 @@ public abstract class SkillTreeSecondary implements SkillTree {
 
         return maxDepth + 1;
     }
+
+    @Override
+    public final int hashCode() {
+        int h = 0;
+        for (String s : this.allSkills()) {
+            h += s.hashCode();
+            h += this.prerequisitesOf(s).hashCode();
+            if (this.isUnlocked(s)) {
+                h++;
+            }
+        }
+        return h;
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (!(o instanceof SkillTree1L)) {
+            return false;
+        }
+        SkillTree1L other = (SkillTree1L) o;
+
+        Set<String> mine = this.allSkills();
+        Set<String> theirs = other.allSkills();
+
+        if (!mine.equals(theirs)) {
+            return false;
+        }
+
+        for (String s : mine) {
+            if (this.isUnlocked(s) != other.isUnlocked(s)) {
+                return false;
+            }
+            if (!this.prerequisitesOf(s).equals(other.prerequisitesOf(s))) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

@@ -8,16 +8,13 @@ import components.set.Set1L;
  *
  * Name: Rijul Rastogi Dot Number: Rastogi.68 Due Date: 10/23/25
  *
- * Representation: this.skills is a map from skill name -> Record, where each
- * Record contains: - prereqs: Set<String> of direct prerequisites - unlocked:
- * boolean state.
+ * @Convention: - For every skill k in this.skills, its prereqs set contains
+ *              only names that also exist as keys in this.skills. - No cycles
+ *              exist in the prerequisite graph.
  *
- * Convention: - For every skill k in this.skills, its prereqs set contains only
- * names that also exist as keys in this.skills. - No cycles exist in the
- * prerequisite graph.
- *
- * Correspondence: - allSkills = DOMAIN(this.skills) - prerequisitesOf(s) =
- * this.skills[s].prereqs - isUnlocked(s) = this.skills[s].unlocked
+ * @Correspondance: - allSkills = DOMAIN(this.skills) - prerequisitesOf(s) =
+ *                  this.skills[s].prereqs - isUnlocked(s) =
+ *                  this.skills[s].unlocked
  */
 public class SkillTree1L extends SkillTreeSecondary {
 
@@ -147,50 +144,31 @@ public class SkillTree1L extends SkillTreeSecondary {
     }
 
     /**
+     * Transfers the contents of {@code source} to {@code this}.
+     *
+     * @param source
+     *            the skill tree to transfer from
+     * @updates this, source
+     * @ensures this = #source and source = new SkillTree1L()
+     */
+    public final void transferFrom(SkillTree source) {
+        assert source != null : "Violation of: source is not null";
+        assert source != this : "Violation of: source is not this";
+        assert source.getClass() == this
+                .getClass() : "Violation of: source is of the same dynamic type";
+
+        SkillTree1L localSource = (SkillTree1L) source;
+        this.skills = localSource.skills;
+        localSource.createNewRep();
+    }
+
+    /**
      * Creates and returns a new instance of SkillTree1L.
      *
      * @return new instance of SkillTree1L
      */
     public final SkillTree1L newInstance() {
         return new SkillTree1L();
-    }
-
-    @Override
-    public final boolean equals(Object o) {
-        if (!(o instanceof SkillTree1L)) {
-            return false;
-        }
-        SkillTree1L other = (SkillTree1L) o;
-
-        Set<String> mine = this.allSkills();
-        Set<String> theirs = other.allSkills();
-
-        if (!mine.equals(theirs)) {
-            return false;
-        }
-
-        for (String s : mine) {
-            if (this.isUnlocked(s) != other.isUnlocked(s)) {
-                return false;
-            }
-            if (!this.prerequisitesOf(s).equals(other.prerequisitesOf(s))) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    @Override
-    public final int hashCode() {
-        int h = 0;
-        for (String s : this.allSkills()) {
-            h += s.hashCode();
-            h += this.prerequisitesOf(s).hashCode();
-            if (this.isUnlocked(s)) {
-                h++;
-            }
-        }
-        return h;
     }
 
     @Override

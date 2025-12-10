@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
+## [2025.12.10]
+
+### Added
+- Designed and implemented full JUnit test suite for `SkillTree` component
+  including kernel and secondary behavior testing
+- Designed two concrete use cases for `SkillTree` component:
+  - Game skill progression system demo
+  - Academic course planner demo
+
+### Updated
+- Polished public API for production readiness
+- Standardized equality, hashing, and transfer behavior using OSU conventions
+- Prepared repository for public release with clean project structure
+
+
 ## [2025.11.21]
 
 ### Added
